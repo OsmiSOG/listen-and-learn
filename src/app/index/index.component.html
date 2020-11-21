@@ -1,0 +1,37 @@
+<div class="container text-center">
+   <br>
+   <img src="https://cidi.com/wp-content/uploads/2017/07/post_idiomas_.jpg" width="500" class="img-fluid m-0 p-0" alt="Responsive image">
+
+   <form class="my-3" (submit)="searchLyric(searchParam)">
+      <h3><b>Buscar</b></h3>
+      <div class="form-row">
+         <div class="col">
+           <label class="sr-only" for="inlineFormInput">Name</label>
+           <input type="text" class="form-control mb-2" id="inlineFormInput" autocomplete="off" placeholder="Buscador  Nombre - youtube url" #searchParam>
+         </div>
+         <div class="col-auto">
+           <button type="submit" class="btn btn-primary mb-2">Buscar</button>
+         </div>
+       </div>
+   </form>
+
+   <hr>
+
+   <div class="my-3">
+      <div class="card my-3 text-left" *ngFor="let lyrics of lyricsGlobal">
+         <h5 class="card-header text-center">{{lyrics.VideoName}}</h5>
+         <div class="card-body">
+            <div class="row">
+               <div class="col text-center">
+                  <h6 class="card-title"><b>Creado Por:</b>  {{lyrics.collaborator.name}}</h6>
+                  <p class="card-text"><b>Video Origen:</b> <a target="_blank" [attr.href]="lyrics.YoutubeURL"> {{lyrics.VideoName}}</a></p>
+               </div>
+               <div class="col text-center">
+                  <a [routerLink]="['/play/lyrics', lyrics._id]"
+                  routerLinkActive="router-link-active" class="btn btn-primary">Vamos con toda</a>
+               </div>
+            </div>
+         </div>
+       </div>
+   </div>
+</div>
