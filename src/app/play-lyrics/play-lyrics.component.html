@@ -1,3 +1,26 @@
 <div class="container text-center">
 
+   <h2>{{lyric.VideoName}}</h2>
+
+   <youtube-player
+      [videoId]="lyric.idVideoYoutube"
+      suggestedQuality="default"
+      [height]="250"
+      [width]="600">
+   </youtube-player>
+
+   <div class="text-center border-right border-left rounded mx-4 px-4 my-3 py-3">
+      <h4>Vamos A Escuchar</h4>
+      <form (submit)="playLyric(form)" #form>
+         <div class="text-center">
+            <div *ngFor="let phrase of lyric.phrases; let i = index" class="text-justify">
+               <p [innerHTML]="phrase" class="d-inline-block"></p>
+               <input *ngIf="lyric.phrases.length !== i+1" type="text">
+            </div>
+
+         </div>
+         <button class="btn btn-success">¿Como Nos Fue?</button>
+      </form>
+   </div>
+
 </div>

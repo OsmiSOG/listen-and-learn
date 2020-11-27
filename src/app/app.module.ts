@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from "@angular/common/http";
+import { ReactiveFormsModule } from "@angular/forms";
 
 import { LyricsService } from "./lyric/lyrics.service";
 
@@ -28,7 +29,8 @@ import { YouTubePlayerModule } from "@angular/youtube-player";
       AppRoutingModule,
       BrowserAnimationsModule,
       HttpClientModule,
-      YouTubePlayerModule
+      YouTubePlayerModule,
+      ReactiveFormsModule
    ],
    providers: [
       LyricsService
