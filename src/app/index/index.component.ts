@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LyricsService } from "./../lyric/lyrics.service";
 
-
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',

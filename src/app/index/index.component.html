@@ -19,12 +19,12 @@
 
    <div class="my-3">
       <div class="card my-3 text-left" *ngFor="let lyrics of lyricsGlobal">
-         <h5 class="card-header text-center">{{lyrics.VideoName}}</h5>
+         <h5 class="card-header text-center">{{lyrics.video_name}}</h5>
          <div class="card-body">
             <div class="row">
                <div class="col text-center">
-                  <h6 class="card-title"><b>Creado Por:</b>  {{lyrics.collaborator.name}}</h6>
-                  <p class="card-text"><b>Video Origen:</b> <a target="_blank" [attr.href]="lyrics.YoutubeURL"> {{lyrics.VideoName}}</a></p>
+                  <h6 class="card-title"><b>Creado Por:</b>  {{lyrics.collaborator_id}}</h6>
+                  <p class="card-text"><b>Video Origen:</b> <a target="_blank" [attr.href]="lyrics.youtube_url"> {{lyrics.video_name}}</a></p>
                </div>
                <div class="col text-center">
                   <a [routerLink]="['/play/lyrics', lyrics._id]"

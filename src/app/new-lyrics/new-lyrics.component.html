@@ -1,1 +1,47 @@
-<p>new-lyrics works!</p>
+<div  class="container text-center">
+
+   <h3 class="my-3">Crea tu letra</h3>
+
+   <youtube-player
+      [videoId]="idYoutbe"
+      suggestedQuality="default"
+      [height]="250"
+      [width]="600">
+   </youtube-player>
+
+   <form class="my-4" [formGroup]="form" (ngSubmit)="onSubmit($event)">
+      <div class="form-group">
+         <label for="formGroupExampleInput">Nombre del nuevo lyrics</label>
+         <input type="text" class="form-control" formControlName="videoName" placeholder="My video lyrics">
+       </div>
+      <div class="form-group">
+         <label for="formGroupExampleInput">URL video youtube</label>
+         <input type="text" class="form-control" formControlName="youtubeURL" placeholder="https://www.youtube.com/watch?v=pNJx13aAIow" (change)="loadVideo()">
+      </div>
+      <div class="form-group">
+         <label for="formGroupExampleInput2">Tipo de video</label>
+         <input type="text" class="form-control" formControlName="type" placeholder="song, tutorial, documental, informative, social, other">
+      </div>
+      <div class="form-group">
+         <label for="">Idioma de Video</label><br>
+         <select class="form-control" formControlName="language">
+            <option value="" disabled>Escoje un idioma</option>
+            <option *ngFor="let language of languages" [ngValue]="language['iso_639-1']">{{language.name}}</option>
+         </select>
+      </div>
+      <div class="form-group">
+         <label for="exampleFormControlTextarea1">letra</label>
+         <textarea class="form-control" formControlName="lyric" rows="15" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eleifend bibendum nulla nec ...">
+
+         </textarea>
+      </div>
+      <div>
+         <label for="">Palabras a Esconder</label>
+         <input type="text" class="form-control" formControlName="keywords" placeholder="Escribe cada palabra separada por (,)">
+      </div>
+      <br>
+      <button class="btn btn-primary" type="submit" [disabled]="!form.valid">
+         Crear Nueva Letra
+      </button>
+   </form>
+</div>

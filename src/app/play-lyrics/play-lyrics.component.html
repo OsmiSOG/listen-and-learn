@@ -11,14 +11,14 @@
 
    <div class="text-center border-right border-left rounded mx-4 px-4 my-3 py-3">
       <h4>Vamos A Escuchar</h4>
-      <form (submit)="playLyric(form)" #form>
+      <form (submit)="playLyric($event)" [formGroup]="form">
          <div class="text-center">
-            <div *ngFor="let phrase of lyric.phrases; let i = index" class="text-justify">
-               <p [innerHTML]="phrase" class="d-inline-block"></p>
-               <input *ngIf="lyric.phrases.length !== i+1" type="text">
-            </div>
-
+            <div
+               [innerHTML]="lyric.phrases | sanitizeHtmlPipe"
+               formArrayName="wordsAnswered"
+            ></div>
          </div>
+         <br>
          <button class="btn btn-success">¿Como Nos Fue?</button>
       </form>
    </div>
